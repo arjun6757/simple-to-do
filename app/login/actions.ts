@@ -62,7 +62,7 @@ export async function handleOAuth(provider: Provider) {
 
 	const supabase = await createClient();
 
-	const redirectURL = "http://localhost:3000/auth/callback";
+	const redirectURL = process.env.NEXT_PUBLIC_REDIRECT_URL || "http://localhost:3000/auth/callback";
 
 	const { data, error } = await supabase.auth.signInWithOAuth({
 		provider: provider,
