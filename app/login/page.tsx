@@ -66,12 +66,11 @@ export default async function Login() {
 
             <div className='flex gap-1 justify-center'>
                 <span className='text-gray-500'>Don&apos;t have an account?</span>
-                <Link href={'/signup'} className='underline-offset-4 hover:underline font-medium'>
+                <Link href="/signup" className='underline-offset-4 hover:underline font-medium'>
                     Sign up
                 </Link>
             </div>
 
         </div>
-        // </div>
     )
 }

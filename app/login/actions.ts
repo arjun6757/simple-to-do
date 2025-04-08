@@ -1,4 +1,4 @@
-'use server'
+"use server";
 
 import { createClient } from "@/utils/supabase/server";
 import { Provider } from "@supabase/supabase-js";
@@ -32,6 +32,11 @@ export async function handleSignUp(formData: FormData) {
 	const data = {
 		email: formData.get("email") as string,
 		password: formData.get("password") as string,
+		options: {
+			data: {
+				full_name: formData.get("username") as string,
+			},
+		},
 	};
 
 	const { error } = await supabase.auth.signUp(data);
@@ -62,7 +67,9 @@ export async function handleOAuth(provider: Provider) {
 
 	const supabase = await createClient();
 
-	const redirectURL = process.env.NEXT_PUBLIC_REDIRECT_URL || "http://localhost:3000/auth/callback";
+	const redirectURL =
+		process.env.NEXT_PUBLIC_REDIRECT_URL ||
+		"http://localhost:3000/auth/callback";
 
 	const { data, error } = await supabase.auth.signInWithOAuth({
 		provider: provider,

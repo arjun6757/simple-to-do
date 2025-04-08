@@ -7,7 +7,7 @@ import FormBottom from "./form-bottom";
 
 
 function TodoList({ todos }: { todos: Array<Todo> }) {
-	return todos.map(todo=> <TodoItem key={todo.id} todo={todo} />)
+	return todos.length===0 ? (<span className="flex justify-center items-center h-full">It's empty here</span>) : todos.map(todo=> <TodoItem key={todo.id} todo={todo} />)
 }
 
 export default async function App() {

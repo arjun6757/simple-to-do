@@ -26,9 +26,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen h-screen flex flex-col-reverse sm:flex-row justify-center items-center`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased w-screen sm:w-[calc(100vw-56px)] h-[calc(100vh-56px)] sm:h-screen flex flex-col-reverse sm:flex-row justify-center items-center`}
       >
-      <Sidebar />
+        <Sidebar />
         {children}
       </body>
     </html>
