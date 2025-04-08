@@ -18,22 +18,23 @@ export default async function Settings() {
 						action={handleSignOut}
 						className="flex flex-col sm:flex-row gap-4 w-full items-center space-x-2"
 					>
-							{
-								user.user_metadata?.avatar_url ? (
-
+						{user.user_metadata?.avatar_url ? (
 							<Image
 								className="rounded-full"
 								referrerPolicy="no-referrer"
-								src={user ? user.user_metadata?.avatar_url : null}
+								src={
+									user ? user.user_metadata?.avatar_url : null
+								}
 								alt="avatar"
 								width={200}
 								height={200}
 							/>
-							) : (
+						) : (
 							<div className="w-[200px] h-[200px] rounded-full bg-gradient-to-br from-red-400 via-rose-500 to-pink-500"></div>
-							)
-						}
-							<p className="text-xl sm:text-3xl">{user ? user.user_metadata.full_name : "username"}</p>
+						)}
+						<p className="text-xl sm:text-3xl">
+							{user ? user.user_metadata.full_name : "username"}
+						</p>
 						<Button>Sign Out</Button>
 					</form>
 				) : (
