@@ -8,7 +8,7 @@ export default function Sidebar() {
 	const path = usePathname()
 
 	return (
-		<nav className="fixed bottom-0 sm:left-0 w-full sm:w-14 h-14 sm:h-full border border-[#ddd]">
+		<nav className="fixed bottom-0 sm:left-0 w-full sm:w-14 h-14 sm:h-full border-t sm:border-t-0 sm:border-r border-[#ddd]">
 			<ul className="flex flex-row sm:flex-col gap-0 sm:gap-4 justify-around sm:justify-start items-center sm:mt-6 p-2
 			sm:p-0 w-full h-full sm:w-auto sm:h-auto">
 				<li
