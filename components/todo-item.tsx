@@ -1,14 +1,12 @@
 "use client";
 
-// import { Checkbox } from "@radix-ui/react-checkbox";
 import { Card, CardContent } from "./ui/card";
 import { useState } from "react";
 import { Todo } from "@/types/custom";
 import { Calendar, Trash } from "lucide-react";
 import { Checkbox } from "./ui/checkbox";
-import { deleteTask, updateTask } from "@/app/app/actions";
+import { deleteTask, updateTask } from "@/app/(app)/app/actions";
 import { useFormStatus } from "react-dom";
-// import { Textarea } from "./ui/textarea";
 
 function formatDate(date: string): string {
 	const values = date.split("-");

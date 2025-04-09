@@ -17,7 +17,7 @@ export default async function Login() {
 
     return (
         // <div className='flex pt-5 bg-gray-50 justify-center font-inter'>
-        <div className='mt-6 font-sans bg-white w-xs sm:w-md mx-auto h-fit border border-[#ddd] shadow-sm rounded-md px-6 py-8 text-sm text-gray-800 flex flex-col gap-4'>
+        <div className='font-sans bg-white w-xs sm:w-md h-fit border border-[#ddd] shadow-sm rounded-md px-6 py-8 text-sm text-gray-800 flex flex-col gap-4'>
             <div className='mb-2'>
                 <span className='text-2xl font-bold'>Sign in</span>
                 <p className='text-xs text-gray-500'>Choose your preferred sign in method</p>

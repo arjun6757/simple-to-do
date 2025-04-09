@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { createClient } from "@/utils/supabase/server";
-import { handleSignOut } from "@/app/login/actions";
+import { handleSignOut } from "@/app/(auth)/login/actions";
 import Image from "next/image";
 
 export default async function Settings() {

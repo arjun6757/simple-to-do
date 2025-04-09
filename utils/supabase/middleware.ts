@@ -41,7 +41,13 @@ export async function updateSession(request: NextRequest) {
     !user &&
     !request.nextUrl.pathname.startsWith('/login') &&
     !request.nextUrl.pathname.startsWith('/auth') &&
-    !request.nextUrl.pathname.startsWith('/signup')
+    !request.nextUrl.pathname.startsWith('/signup') &&
+    // !request.nextUrl.pathname.startsWith('/') &&
+    // as this will just trigger any route as literally every route starts with the route '/'
+    // so now the options are using /landing
+    // oh i got the solution maybe
+    request.nextUrl.pathname !== '/' &&
+    !request.nextUrl.pathname.startsWith('/about')
   ) {
     // no user, potentially respond by redirecting the user to the login page
     const url = request.nextUrl.clone()

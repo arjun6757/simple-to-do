@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-export default async function Index() {
+export default async function Landing() {
   return (
-    <section className="w-xs mx-auto sm:mx-0 sm:w-full h-full flex justify-center items-center">
+    <main className="w-xs mx-auto sm:mx-0 sm:w-full h-full flex justify-center items-center">
       <div className="font-sans flex flex-col gap-2 justify-center">
         <h1 className="text-3xl sm:text-4xl">
           Simply store all your
@@ -23,7 +23,6 @@ export default async function Index() {
           <div className="z-[1] h-full w-full bg-purple-500 transition-transform duration-300 not-hover:-translate-x-full not-hover:ease-out group-hover:translate-x-0 group-hover:ease-in"></div>
         </Link>
       </div>
-    </section>
+    </main>
   );
 }
-
