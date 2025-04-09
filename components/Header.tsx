@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { createClient } from "@/utils/supabase/server";
-import { handleSignOut } from "@/app/login/actions";
+import { handleSignOut } from "@/app/(auth)/login/actions";
 import Image from "next/image";
 
 export default async function Header() {
