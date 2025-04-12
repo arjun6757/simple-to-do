@@ -98,7 +98,7 @@ export default async function App() {
 							<MenubarTrigger className="rounded-full px-1 hover:bg-transparent text-gray-700 hover:text-gray-700/80 cursor-pointer">
 								<EllipsisVertical className="w-4 h-4 text-inherit" />
 							</MenubarTrigger>
-							<MenubarContent className="font-sans mt-2">
+							<MenubarContent className="font-sans mt-2 mr-2 sm:mr-0">
 								<MenubarItem>
 									New Tasklist{" "}
 									<MenubarShortcut>⌘T</MenubarShortcut>
