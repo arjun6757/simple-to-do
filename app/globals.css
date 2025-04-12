@@ -122,7 +122,8 @@
 }
 
 .scrollbar-hidden {
-  scrollbar-width: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none; /* IE 10+ */
 }
 
 .scrollbar-hidden::-webkit-scrollbar {

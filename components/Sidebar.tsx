@@ -1,32 +1,115 @@
 "use client";
-import { Home, Settings } from "lucide-react";
+import {
+	ChartBar,
+	CreditCard,
+	Home,
+	LogIn,
+	LogOutIcon,
+	Settings,
+} from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import Avatar from "./avatar";
+import {
+	DropdownMenu,
+	DropdownMenuContent,
+	DropdownMenuItem,
+	DropdownMenuLabel,
+	DropdownMenuSeparator,
+	DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
+import { handleSignOut } from "@/app/(auth)/login/actions";
 
-export default function Sidebar() {
-
-	const path = usePathname()
+export default function Sidebar({
+	image,
+	name,
+	email,
+}: {
+	image: string | null;
+	name: string | null;
+	email: string | null;
+}) {
+	const path = usePathname();
+	const router = useRouter();
 
 	return (
-		<nav className="fixed bottom-0 sm:left-0 w-full sm:w-14 h-14 sm:h-full border-t sm:border-t-0 sm:border-r border-[#ddd]">
-			<ul className="flex flex-row sm:flex-col gap-0 sm:gap-4 justify-around sm:justify-start items-center sm:mt-6 p-2
-			sm:p-0 w-full h-full sm:w-auto sm:h-auto">
+		<nav className="fixed bottom-0 sm:left-0 w-full sm:w-14 h-14 sm:h-full border-t sm:border-t-0 sm:border-r border-[#ddd] flex sm:flex-col sm:justify-between">
+			<ul
+				className="flex flex-row sm:flex-col gap-0 sm:gap-4 justify-around sm:justify-start items-center sm:mt-6 p-2
+			sm:p-0 w-full h-full sm:w-auto sm:h-auto"
+			>
 				<li
-					className={`w-1/2 sm:w-auto cursor-pointer p-2 rounded ${path==="/app" ? 'bg-[#f0f0f0]' : 'hover:bg-gray-50'} `}
+					className={` flex justify-center sm:w-auto cursor-pointer focus:ring-2 focus:ring-blue-500 rounded-md ${path === "/app" ? "bg-[#f0f0f0]" : "hover:bg-gray-50"}`}
 				>
-					<Link href="/app">
-						<Home className="w-6 h-6 mx-auto sm:mx-0 text-inherit" />
+					<Link href="/app" className="inline-flex items-center sm:block p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-md" >
+						<Home className="w-5 h-5 mx-auto sm:mx-0 text-inherit focus:outline-none" />
 					</Link>
 				</li>
 
 				<li
-					className={`w-1/2 sm:w-auto cursor-pointer p-2 rounded ${path==="/settings" ? 'bg-[#f0f0f0]' : 'hover:bg-gray-50'}`}
+					className={` sm:w-auto cursor-pointer rounded-md ${path === "/stats" ? "bg-[#f0f0f0]" : "hover:bg-gray-50 "}`}
 				>
-					<Link href="/settings">
-						<Settings className="w-6 h-6 mx-auto sm:mx-0 text-inherit" />
+					<Link href="/stats" className="inline-flex items-center sm:block p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-md">
+						<ChartBar className="w-5 h-5 mx-auto sm:mx-0 text-inherit focus:outline-none" />
+					</Link>
+				</li>
+
+				<li
+					className={` sm:w-auto cursor-pointer rounded-md ${path === "/settings" ? "bg-[#f0f0f0]" : "hover:bg-gray-50"}`}
+				>
+					<Link href="/settings" className="inline-flex sm:block p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-md" >
+						<Settings className="w-full h-full mx-auto sm:mx-0 text-inherit focus:outline-none" />
 					</Link>
 				</li>
 			</ul>
+
+			<div className="flex justify-center items-center sm:mb-6 p-2">
+				<DropdownMenu>
+					<DropdownMenuTrigger className=" sm:w-auto outline-gray-500 dark:outline-blue-500 outline-offset-4 text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-neutral-900 rounded-full shadow-xs cursor-pointer border-2 border-gray-400 p-0.5">
+						<Avatar image={image} name={name} email={email} />
+					</DropdownMenuTrigger>
+					<DropdownMenuContent
+						sideOffset={4}
+						className={
+							"font-sans mr-4 sm:mr-0 sm:ml-4 mb-6 sm:mb-2 drop-shadow-xs"
+						}
+					>
+						<DropdownMenuLabel>
+							{email ?? "My Account"}
+						</DropdownMenuLabel>
+						<DropdownMenuSeparator />
+						<DropdownMenuItem>
+							<CreditCard />
+							Billing
+						</DropdownMenuItem>
+						{email ? (
+							<DropdownMenuItem
+								onClick={async () => {
+									await handleSignOut(); //server
+								}}
+							>
+								<LogOutIcon />
+								Log out
+							</DropdownMenuItem>
+						) : (
+							<DropdownMenuItem
+								onClick={() => router.push("/login")}
+							>
+								<LogIn />
+								Log in
+							</DropdownMenuItem>
+						)}
+
+						<DropdownMenuSeparator />
+
+						<DropdownMenuLabel className="text-gray-500 dark:text-neutral-400">
+							Preferences
+						</DropdownMenuLabel>
+						<DropdownMenuItem>Theme</DropdownMenuItem>
+						<DropdownMenuItem>Language</DropdownMenuItem>
+					</DropdownMenuContent>
+				</DropdownMenu>
+			</div>
 		</nav>
 	);
 }

@@ -20,10 +20,10 @@ export default function FormBottom() {
 			<input
 				name="task"
 				placeholder="Type here to add a task..."
-				className="w-full pl-3 rounded border border-[#ddd] outline-offset-4 shadow-xs"
+				className="w-full pl-3 border border-[#ddd] outline-offset-4 shadow-xs rounded-md"
 				required
 			/>
-			<Button className="rounded">
+			<Button className="rounded-md">
 				<Send />
 			</Button>
 		</form>
