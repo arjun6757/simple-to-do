@@ -39,77 +39,91 @@ export default function Sidebar({
 			sm:p-0 w-full h-full sm:w-auto sm:h-auto"
 			>
 				<li
-					className={` flex justify-center sm:w-auto cursor-pointer focus:ring-2 focus:ring-blue-500 rounded-md ${path === "/app" ? "bg-[#f0f0f0]" : "hover:bg-gray-50"}`}
+				// className={` flex justify-center sm:w-auto cursor-pointer focus:ring-2 focus:ring-blue-500 rounded-md ${path === "/app" ? "bg-[#f0f0f0]" : "hover:bg-gray-50"}`}
 				>
-					<Link href="/app" className="inline-flex items-center sm:block p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-md" >
+					<Link
+						data-active={path === "/app"}
+						href="/app"
+						className="data-[active=true]:bg-[#f0f0f0] data-[active=false]:hover:bg-gray-50 inline-flex items-center sm:block p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-md"
+					>
 						<Home className="w-5 h-5 mx-auto sm:mx-0 text-inherit focus:outline-none" />
 					</Link>
 				</li>
 
 				<li
-					className={` sm:w-auto cursor-pointer rounded-md ${path === "/stats" ? "bg-[#f0f0f0]" : "hover:bg-gray-50 "}`}
+				// className={` sm:w-auto cursor-pointer rounded-md border ${path === "/stats" ? "bg-[#f0f0f0]" : "hover:bg-gray-50 "}`}
 				>
-					<Link href="/stats" className="inline-flex items-center sm:block p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-md">
+					<Link
+						data-active={path === "/stats"}
+						href="/stats"
+						className="inline-flex items-center sm:block p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-md data-[active=true]:bg-[#f0f0f0] data-[active=false]:hover:bg-gray-50"
+					>
 						<ChartBar className="w-5 h-5 mx-auto sm:mx-0 text-inherit focus:outline-none" />
 					</Link>
 				</li>
 
 				<li
-					className={` sm:w-auto cursor-pointer rounded-md ${path === "/settings" ? "bg-[#f0f0f0]" : "hover:bg-gray-50"}`}
+				// className={` sm:w-auto cursor-pointer rounded-md border ${path === "/settings" ? "bg-[#f0f0f0]" : "hover:bg-gray-50"}`}
 				>
-					<Link href="/settings" className="inline-flex sm:block p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-md" >
+					<Link
+						data-active={path === "/settings"}
+						href="/settings"
+						className="inline-flex items-center sm:block p-2 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-md data-[active=true]:bg-[#f0f0f0] data-[active=false]:hover:bg-gray-50"
+					>
 						<Settings className="w-full h-full mx-auto sm:mx-0 text-inherit focus:outline-none" />
 					</Link>
 				</li>
+
+				<li className="sm:absolute sm:bottom-16">
+					<DropdownMenu>
+						<DropdownMenuTrigger className="outline-gray-500 dark:outline-blue-500 text-gray-800 dark:text-gray-300 hover:opacity-90 dark:hover:bg-neutral-900 rounded-full shadow-xs cursor-pointer focus:outline-2">
+							<Avatar image={image} name={name} email={email} />
+						</DropdownMenuTrigger>
+						<DropdownMenuContent
+							sideOffset={4}
+							className={
+								"font-sans mr-4 sm:mr-0 sm:ml-4 mb-6 sm:mb-2 drop-shadow-xs"
+							}
+						>
+							<DropdownMenuLabel>
+								{email ?? "My Account"}
+							</DropdownMenuLabel>
+							<DropdownMenuSeparator />
+							<DropdownMenuItem>
+								<CreditCard />
+								Billing
+							</DropdownMenuItem>
+							{email ? (
+								<DropdownMenuItem
+									onClick={async () => {
+										await handleSignOut(); //server
+									}}
+								>
+									<LogOutIcon />
+									Log out
+								</DropdownMenuItem>
+							) : (
+								<DropdownMenuItem
+									onClick={() => router.push("/login")}
+								>
+									<LogIn />
+									Log in
+								</DropdownMenuItem>
+							)}
+
+							<DropdownMenuSeparator />
+
+							<DropdownMenuLabel className="text-gray-500 dark:text-neutral-400">
+								Preferences
+							</DropdownMenuLabel>
+							<DropdownMenuItem>Theme</DropdownMenuItem>
+							<DropdownMenuItem>Language</DropdownMenuItem>
+						</DropdownMenuContent>
+					</DropdownMenu>
+				</li>
 			</ul>
 
-			<div className="flex justify-center items-center sm:mb-6 p-2">
-				<DropdownMenu>
-					<DropdownMenuTrigger className=" sm:w-auto outline-gray-500 dark:outline-blue-500 outline-offset-4 text-gray-800 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-neutral-900 rounded-full shadow-xs cursor-pointer border-2 border-gray-400 p-0.5">
-						<Avatar image={image} name={name} email={email} />
-					</DropdownMenuTrigger>
-					<DropdownMenuContent
-						sideOffset={4}
-						className={
-							"font-sans mr-4 sm:mr-0 sm:ml-4 mb-6 sm:mb-2 drop-shadow-xs"
-						}
-					>
-						<DropdownMenuLabel>
-							{email ?? "My Account"}
-						</DropdownMenuLabel>
-						<DropdownMenuSeparator />
-						<DropdownMenuItem>
-							<CreditCard />
-							Billing
-						</DropdownMenuItem>
-						{email ? (
-							<DropdownMenuItem
-								onClick={async () => {
-									await handleSignOut(); //server
-								}}
-							>
-								<LogOutIcon />
-								Log out
-							</DropdownMenuItem>
-						) : (
-							<DropdownMenuItem
-								onClick={() => router.push("/login")}
-							>
-								<LogIn />
-								Log in
-							</DropdownMenuItem>
-						)}
-
-						<DropdownMenuSeparator />
-
-						<DropdownMenuLabel className="text-gray-500 dark:text-neutral-400">
-							Preferences
-						</DropdownMenuLabel>
-						<DropdownMenuItem>Theme</DropdownMenuItem>
-						<DropdownMenuItem>Language</DropdownMenuItem>
-					</DropdownMenuContent>
-				</DropdownMenu>
-			</div>
+			{/*<div className="flex justify-center items-center sm:mb-6 p-2 align-middle"></div>;*/}
 		</nav>
 	);
 }

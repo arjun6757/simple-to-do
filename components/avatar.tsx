@@ -18,11 +18,11 @@ export default function Avatar({
 					referrerPolicy="no-referrer"
 					src={image}
 					alt="avatar"
-					width={100}
-					height={100}
+					width={30}
+					height={30}
 				/>
 			) : (
-				<div className="w-10 h-10 flex justify-center items-center rounded-full bg-gradient-to-br from-red-400 via-rose-500 to-pink-500 font-bold uppercase text-white">{email ? email.slice(0,1) : "?"}</div>
+				<div className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-gradient-to-br from-red-400 via-rose-500 to-pink-500 uppercase text-white">{email ? email.slice(0,1) : "?"}</div>
 			)}
 		</>
 	);

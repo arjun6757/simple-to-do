@@ -1,41 +1,37 @@
-import {
-	Card,
-	CardContent,
-	CardFooter,
-} from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Todo } from "@/types/custom";
 import TodoItem from "@/components/todo-item";
 import { createClient } from "@/utils/supabase/server";
 import { redirect } from "next/navigation";
 import FormBottom from "./form-bottom";
 import {
-	Select,
-	SelectContent,
-	SelectItem,
-	SelectTrigger,
-	SelectValue,
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
 } from "@/components/ui/select";
 
 import {
-	Menubar,
-	MenubarContent,
-	MenubarItem,
-	MenubarMenu,
-	MenubarSeparator,
-	MenubarShortcut,
-	MenubarSub,
-	MenubarSubContent,
-	MenubarSubTrigger,
-	MenubarTrigger,
+    Menubar,
+    MenubarContent,
+    MenubarItem,
+    MenubarMenu,
+    MenubarSeparator,
+    MenubarShortcut,
+    MenubarSub,
+    MenubarSubContent,
+    MenubarSubTrigger,
+    MenubarTrigger,
 } from "@/components/ui/menubar";
 
 import {
-	Dialog,
-	DialogContent,
-	DialogDescription,
-	DialogHeader,
-	DialogTitle,
-	DialogTrigger,
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
 } from "@/components/ui/dialog";
 import { Check, EllipsisVertical } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -75,7 +71,6 @@ export default async function App() {
 
 	return (
 		<div>
-
 			<Tabs />
 
 			<Card className="h-[30rem] overflow-hidden w-[90vw] sm:w-lg mt-4 font-sans rounded-md gap-2 py-0 pt-3">
