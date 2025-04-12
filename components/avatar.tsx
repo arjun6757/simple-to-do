@@ -4,7 +4,7 @@ export default function Avatar({
 	image,
 	/* eslint-disable @typescript-eslint/no-unused-vars */
 	name,
-	email
+	email,
 }: {
 	image: string | null;
 	name: string | null;
@@ -22,7 +22,9 @@ export default function Avatar({
 					height={30}
 				/>
 			) : (
-				<div className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-gradient-to-br from-red-400 via-rose-500 to-pink-500 uppercase text-white">{email ? email.slice(0,1) : "?"}</div>
+				<div className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-gradient-to-br from-red-400 via-rose-500 to-pink-500 uppercase text-white">
+					{email ? email.slice(0, 1) : "?"}
+				</div>
 			)}
 		</>
 	);

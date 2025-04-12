@@ -38,9 +38,7 @@ export default function Sidebar({
 				className="flex flex-row sm:flex-col gap-0 sm:gap-4 justify-around sm:justify-start items-center sm:mt-6 p-2
 			sm:p-0 w-full h-full sm:w-auto sm:h-auto"
 			>
-				<li
-				// className={` flex justify-center sm:w-auto cursor-pointer focus:ring-2 focus:ring-blue-500 rounded-md ${path === "/app" ? "bg-[#f0f0f0]" : "hover:bg-gray-50"}`}
-				>
+				<li>
 					<Link
 						data-active={path === "/app"}
 						href="/app"
@@ -50,9 +48,7 @@ export default function Sidebar({
 					</Link>
 				</li>
 
-				<li
-				// className={` sm:w-auto cursor-pointer rounded-md border ${path === "/stats" ? "bg-[#f0f0f0]" : "hover:bg-gray-50 "}`}
-				>
+				<li>
 					<Link
 						data-active={path === "/stats"}
 						href="/stats"
@@ -62,9 +58,7 @@ export default function Sidebar({
 					</Link>
 				</li>
 
-				<li
-				// className={` sm:w-auto cursor-pointer rounded-md border ${path === "/settings" ? "bg-[#f0f0f0]" : "hover:bg-gray-50"}`}
-				>
+				<li>
 					<Link
 						data-active={path === "/settings"}
 						href="/settings"
@@ -76,7 +70,7 @@ export default function Sidebar({
 
 				<li className="sm:absolute sm:bottom-16">
 					<DropdownMenu>
-						<DropdownMenuTrigger className="outline-gray-500 dark:outline-blue-500 text-gray-800 dark:text-gray-300 hover:opacity-90 dark:hover:bg-neutral-900 rounded-full shadow-xs cursor-pointer focus:outline-2">
+						<DropdownMenuTrigger className="outline-gray-400 dark:outline-blue-500 outline-offset-2 text-gray-800 dark:text-gray-300 hover:opacity-90 dark:hover:bg-neutral-900 rounded-full shadow-xs cursor-pointer focus:outline-2">
 							<Avatar image={image} name={name} email={email} />
 						</DropdownMenuTrigger>
 						<DropdownMenuContent
@@ -122,8 +116,6 @@ export default function Sidebar({
 					</DropdownMenu>
 				</li>
 			</ul>
-
-			{/*<div className="flex justify-center items-center sm:mb-6 p-2 align-middle"></div>;*/}
 		</nav>
 	);
 }
