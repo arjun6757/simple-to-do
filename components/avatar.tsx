@@ -14,12 +14,12 @@ export default function Avatar({
 		<>
 			{image ? (
 				<Image
-					className="rounded-full"
+					className="rounded-full p-[2px] border"
 					referrerPolicy="no-referrer"
 					src={image}
 					alt="avatar"
-					width={30}
-					height={30}
+					width={32}
+					height={32}
 				/>
 			) : (
 				<div className="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-gradient-to-br from-red-400 via-rose-500 to-pink-500 uppercase text-white">

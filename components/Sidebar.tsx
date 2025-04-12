@@ -70,7 +70,7 @@ export default function Sidebar({
 
 				<li className="sm:absolute sm:bottom-16">
 					<DropdownMenu>
-						<DropdownMenuTrigger className="outline-gray-400 dark:outline-blue-500 outline-offset-2 text-gray-800 dark:text-gray-300 hover:opacity-90 dark:hover:bg-neutral-900 rounded-full shadow-xs cursor-pointer focus:outline-2">
+						<DropdownMenuTrigger className="outline-gray-400 dark:outline-blue-500 outline-offset-2 text-gray-800 dark:text-gray-300 hover:opacity-90 dark:hover:bg-neutral-900 rounded-full shadow-xs cursor-pointer focus:outline-2 flex items-center">
 							<Avatar image={image} name={name} email={email} />
 						</DropdownMenuTrigger>
 						<DropdownMenuContent
