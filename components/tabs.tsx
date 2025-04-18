@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { Dispatch, SetStateAction } from "react";
 
-export default function Tabs() {
-  const [tab, setTab] = useState("Timer");
-
-  const tabs: { [key: string]: number } = {
-    Timer: 0,
-    Tasks: 1,
-  };
-
+export default function Tabs({
+  tab,
+  setTab,
+  tabs,
+}: {
+  tab: string;
+  setTab: Dispatch<SetStateAction<string>>;
+  tabs: { [key: string]: number };
+}) {
   return (
     <div
       onClick={(e) => e.stopPropagation()}

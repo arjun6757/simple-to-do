@@ -14,7 +14,7 @@ export default function Avatar({
 		<>
 			{image ? (
 				<Image
-					className="rounded-full p-[2px] border"
+					className="rounded-full p-[2px] object-cover object-center border-[1.5px] border-[#aaa]"
 					referrerPolicy="no-referrer"
 					src={image}
 					alt="avatar"

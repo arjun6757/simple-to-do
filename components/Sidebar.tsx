@@ -33,7 +33,7 @@ export default function Sidebar({
 	const router = useRouter();
 
 	return (
-		<nav className="fixed bottom-0 sm:left-0 w-full sm:w-14 h-14 sm:h-full border-t sm:border-t-0 sm:border-r border-[#ddd] flex sm:flex-col sm:justify-between">
+		<nav className="fixed bottom-0 sm:left-0 w-full bg-white sm:w-14 h-14 sm:h-full border-t sm:border-t-0 sm:border-r border-[#ddd] flex sm:flex-col sm:justify-between">
 			<ul
 				className="flex flex-row sm:flex-col gap-0 sm:gap-4 justify-around sm:justify-start items-center sm:mt-6 p-2
 			sm:p-0 w-full h-full sm:w-auto sm:h-auto"
@@ -70,13 +70,13 @@ export default function Sidebar({
 
 				<li className="sm:absolute sm:bottom-16">
 					<DropdownMenu>
-						<DropdownMenuTrigger className="outline-gray-400 dark:outline-blue-500 outline-offset-2 text-gray-800 dark:text-gray-300 hover:opacity-90 dark:hover:bg-neutral-900 rounded-full shadow-xs cursor-pointer focus:outline-2 flex items-center">
+						<DropdownMenuTrigger className="outline-gray-400 dark:outline-blue-500 outline-offset-2 text-gray-800 dark:text-gray-300 hover:opacity-90 dark:hover:bg-neutral-900 rounded-full cursor-pointer focus:outline-2 flex items-center">
 							<Avatar image={image} name={name} email={email} />
 						</DropdownMenuTrigger>
 						<DropdownMenuContent
 							sideOffset={4}
 							className={
-								"font-sans mr-4 sm:mr-0 sm:ml-4 mb-6 sm:mb-2 drop-shadow-xs"
+								"w-[14rem] font-sans mr-4 sm:mr-0 sm:ml-4 mb-6 sm:mb-2 drop-shadow-xs"
 							}
 						>
 							<DropdownMenuLabel>
