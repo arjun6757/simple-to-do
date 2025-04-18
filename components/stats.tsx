@@ -23,7 +23,6 @@ const focusStats = {
   totalMinutes: 540, // 9 hours
 };
 
-
 const mockActivityData = [
   { date: "2025-03-10", count: 2, level: 1 },
   { date: "2025-03-12", count: 4, level: 3 },
@@ -46,7 +45,6 @@ const mockActivityData = [
   { date: "2025-04-13", count: 4, level: 3 },
 ];
 
-
 const barData = [
   { day: "Mon", minutes: 90 },
   { day: "Tue", minutes: 60 },
@@ -58,21 +56,20 @@ const barData = [
 ];
 
 // Generates mock daily activity data for the whole year (365 days)
-function generateYearlyMockStats(year = 2025) {
-  const stats = [];
-  const start = new Date(`${year}-01-01`);
-  const end = new Date(`${year}-12-31`);
+// function generateYearlyMockStats(year = 2025) {
+//   const stats = [];
+//   const start = new Date(`${year}-01-01`);
+//   const end = new Date(`${year}-12-31`);
 
-  for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
-    stats.push({
-      date: d.toISOString().slice(0, 10),
-      value: Math.floor(Math.random() * 6), // 0 to 5 pomodoros
-    });
-  }
+//   for (let d = new Date(start); d <= end; d.setDate(d.getDate() + 1)) {
+//     stats.push({
+//       date: d.toISOString().slice(0, 10),
+//       value: Math.floor(Math.random() * 6), // 0 to 5 pomodoros
+//     });
+//   }
 
-  return stats;
-}
-
+//   return stats;
+// }
 
 const Stats = () => {
   return (
@@ -99,7 +96,7 @@ const Stats = () => {
         {/* Summary cards */}
         <div className="min-h-full">
           <Card className="shadow-xs h-full">
-            <CardContent >
+            <CardContent>
               <h2 className="text-lg font-semibold mb-2">
                 Productivity Summary
               </h2>
